@@ -81,8 +81,6 @@ class ANR(object):
         self.lr_dict = dico.components_
 
         # construct hr dict.
-        self.p_mean = np.mean(patches, axis=0)
-        self.p_std = np.std(patches, axis=0)
         # hr_dict = inv(code.T.dot(code)).dot(code.T).dot(patches)
         hr_dict = inv(
             code.T.dot(code) + 0.01 * np.eye(code.shape[1])).dot(
